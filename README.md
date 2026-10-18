@@ -32,7 +32,7 @@ The long-term goal is a **story- and quest-driven open-world game in the spirit 
 Requirements: **Node 20+**, **[uv](https://docs.astral.sh/uv/)** (Python 3.12 is fetched automatically), ~3 GB free disk, a recent Chrome/Edge/Safari, internet access (the city mesh is streamed from the municipal server).
 
 ```sh
-git clone https://github.com/<you>/vilnius-3d-game.git
+git clone https://github.com/bolivian-peru/vilnius-3d-game.git
 cd vilnius-3d-game
 
 # 1. Map data (OpenStreetMap, ODbL) — about 1 GB download + a few minutes of processing
