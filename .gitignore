@@ -1,0 +1,14 @@
+data/raw/
+data/build/
+tools/
+.venv/
+__pycache__/
+*.blend1
+.DS_Store
+web/node_modules/
+web/public/tiles/
+web/dist/
+
+# local dev data
+web/public/_fake/
+*.log

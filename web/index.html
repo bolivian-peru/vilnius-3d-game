@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Vilnius</title>
+  <style>
+    html, body { margin: 0; height: 100%; overflow: hidden; background: #9fc4e8; font: 14px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; color: #fff; }
+    canvas#view { display: block; width: 100%; height: 100%; }
+    .panel { position: fixed; background: rgba(12, 16, 22, .62); backdrop-filter: blur(6px); border-radius: 8px; padding: 10px 14px; }
+    #help { top: 14px; left: 14px; max-width: 300px; }
+    #help h1 { font-size: 15px; margin: 0 0 6px; letter-spacing: .04em; }
+    #help kbd { background: rgba(255, 255, 255, .16); border-radius: 4px; padding: 1px 6px; font: inherit; }
+    #help p { margin: 3px 0; color: #d6dde6; }
+    #help select { width: 100%; margin: 2px 0 8px; padding: 5px 6px; border-radius: 5px; border: 0; background: rgba(255, 255, 255, .92); color: #111; font: inherit; }
+    #stream { color: #9eabba !important; font-size: 12px; }
+    #hud { bottom: 14px; left: 14px; min-width: 220px; }
+    #speed { font-size: 34px; font-weight: 600; font-variant-numeric: tabular-nums; }
+    #speed small { font-size: 13px; font-weight: 400; color: #b9c3cf; margin-left: 4px; }
+    #street { font-size: 16px; }
+    #coords { color: #9eabba; font-size: 12px; font-variant-numeric: tabular-nums; }
+    #prompt { bottom: 110px; left: 50%; transform: translateX(-50%); display: none; }
+    #map { position: fixed; right: 14px; bottom: 14px; width: 200px; height: 200px; border-radius: 8px; background: rgba(12, 16, 22, .7); }
+    #loading { top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 16px; }
+    #capture { top: 14px; left: 50%; transform: translateX(-50%); display: none; border: 0; color: #fff; font: inherit; cursor: pointer; }
+    #error { top: 50%; left: 50%; transform: translate(-50%, -50%); display: none; max-width: 480px; }
+  </style>
+</head>
+<body>
+  <canvas id="view"></canvas>
+  <div id="help" class="panel">
+    <h1>VILNIUS</h1>
+    <select id="place" aria-label="Travel to"></select>
+    <p><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> move or drive · <kbd>Shift</kbd> run</p>
+    <p><kbd>F</kbd> enter / leave car · <kbd>Space</kbd> jump / handbrake</p>
+    <p>Move the mouse to look · <kbd>R</kbd> back to start</p>
+    <p id="stream"></p>
+  </div>
+  <div id="hud" class="panel">
+    <div id="speed">0<small>km/h</small></div>
+    <div id="street">—</div>
+    <div id="coords"></div>
+  </div>
+  <div id="prompt" class="panel"></div>
+  <canvas id="map" width="400" height="400"></canvas>
+  <div id="loading" class="panel">Loading…</div>
+  <button id="capture" class="panel">Click to capture the mouse · Esc to release</button>
+  <div id="error" class="panel"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

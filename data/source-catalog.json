@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "checked_on": "2026-10-13",
+  "purpose": "Research registry for the Vilnius game data pipeline; not a downloader or license grant.",
+  "sources": [
+    {
+      "id": "vilnius_municipal_3d",
+      "provider": "Vilnius municipality / ID Vilnius",
+      "catalog_url": "https://opencity.idvilnius.lt/server/rest/services/3D",
+      "viewer_url": "https://3d.vilnius.lt/scenos/realaus-vaizdo-3d-modelis",
+      "candidate_services": [
+        "https://opencity.idvilnius.lt/server/rest/services/3D/Vilnius_mesh_2022/SceneServer",
+        "https://opencity.idvilnius.lt/server/rest/services/3D/Vilnius_mesh_2019/SceneServer",
+        "https://opencity.idvilnius.lt/server/rest/services/Hosted/Pastatai_3D/SceneServer"
+      ],
+      "evidence_status": "Vilnius_mesh_2022 layer metadata read and one 500 m tile (E000_N000, 262 nodes, 4.7M triangles) fetched and built locally on 2026-10-13. I3S 1.9 integrated mesh, EPSG:3857, Draco geometry, JPEG textures. Service capabilities: View, Query. No copyright text, capture date, or vertical datum published.",
+      "roles": [
+        "appearance_reference",
+        "candidate_licensed_backdrop",
+        "candidate_building_geometry"
+      ],
+      "license_status": "Commercial modification, offline redistribution, and texture rights unverified.",
+      "capture_date": null,
+      "coverage": "Layer extent in EPSG:3857: 2785725.5, 7278642.5, 2836577.9, 7329391.1; completeness inside it not checked.",
+      "downloaded": "pilot tile only, local evaluation, git-ignored",
+      "next_action": "Send the request in docs/map-sources.md; obtain capture dates, vertical datum, an authorized export, and licence terms before distributing anything derived from the mesh."
+    },
+    {
+      "id": "lithuania_lidar_dr_lt",
+      "provider": "NŽT / SSVA",
+      "catalog_url": "https://data.gov.lt/datasets/3987/",
+      "format": "LAZ",
+      "catalog_year_range": "2019-2026",
+      "evidence_status": "Current catalog inspected; individual Vilnius tiles not acquired.",
+      "roles": [
+        "bare_earth_terrain",
+        "building_height_reference",
+        "vegetation_height_reference"
+      ],
+      "license_status": "Public availability verified; applicable delivery and reuse terms must be recorded for selected tiles.",
+      "capture_date": null,
+      "vertical_crs": null,
+      "downloaded": false,
+      "next_action": "Select pilot coverage in Geoportal; record acquisition dates, vertical reference, classification quality, and terms."
+    },
+    {
+      "id": "lithuania_grpk",
+      "provider": "SSVA / Lithuanian national geographic base cadastre",
+      "catalog_url": "https://data.gov.lt/datasets/3424/",
+      "publisher_download_links": [
+        "https://www.geoportal.lt/download/opendata/GRPK/GRPK_Open_SHP.zip",
+        "https://www.geoportal.lt/download/opendata/GRPK/GRPK_Open_GDB.zip"
+      ],
+      "evidence_status": "Publisher catalog and archive links inspected; archives not downloaded.",
+      "roles": [
+        "building_footprints",
+        "transport_geometry",
+        "hydrography",
+        "land_cover"
+      ],
+      "license_status": "Publisher states CC BY 4.0; preserve attribution and modification notice.",
+      "license_id": "CC-BY-4.0",
+      "downloaded": false,
+      "next_action": "Download one archive format, inspect schemas, clip the pilot area, and record a checksum and snapshot date."
+    },
+    {
+      "id": "osm_lithuania",
+      "provider": "OpenStreetMap contributors / Geofabrik",
+      "catalog_url": "https://download.geofabrik.de/europe/lithuania.html",
+      "download_url": "https://download.geofabrik.de/europe/lithuania-latest.osm.pbf",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "format": "OSM PBF",
+      "roles": [
+        "street_topology",
+        "street_names",
+        "access_rules",
+        "turn_restrictions",
+        "mapped_lane_attributes"
+      ],
+      "evidence_status": "Snapshot with Last-Modified 2026-10-12 downloaded and processed for the Vilnius window: 50,547 drivable ways, 170,312 buildings, 5,695 restriction relations read (979 applied, 27 via-way restrictions unhandled).",
+      "license_status": "ODbL; attribution and applicable derived-database obligations must be preserved.",
+      "license_id": "ODbL-1.0",
+      "downloaded": true,
+      "next_action": "Audit lane counts, widths, and restrictions on the pilot route; 87% of segments use inferred lane counts.",
+      "snapshot": {
+        "file": "data/raw/osm/lithuania-2026-10-12.osm.pbf",
+        "sha256": "21cc8372b439cf9bfe8c171537cce15637cbdbd2e252e7778c3dbf780aeac9bd",
+        "bytes": 223182813
+      }
+    },
+    {
+      "id": "vilnius_heritage_pilot",
+      "provider": "Vilnius municipality; announcement names MB Digital Heritage",
+      "catalog_url": "https://vilnius.lt/naujienos/vilnius-pasitelkia-dirbtini-intelekta-istoriniam-miesto-paveldui-saugoti",
+      "roles": [
+        "candidate_landmark_reference"
+      ],
+      "evidence_status": "Official announcement inspected; 15 ha project, not a full-city downloadable model.",
+      "license_status": "Unverified; obtain terms and sample from the data owner.",
+      "downloaded": false,
+      "next_action": "Ask for the coverage polygon, source resolution, available assets, and commercial reuse terms."
+    },
+    {
+      "id": "anyscape_vilnius",
+      "provider": "Anyscape",
+      "catalog_url": "https://anyscape.io/3d-city-models/vilnius/",
+      "roles": [
+        "candidate_paid_blockout"
+      ],
+      "evidence_status": "Vendor listing inspected; 2021 catalog data, computed LoD1, and 30 m terrain stated. No sample evaluated.",
+      "license_status": "Vendor terms plus upstream attribution; game redistribution rights not verified.",
+      "downloaded": false,
+      "next_action": "Evaluate a sample and obtain exact deliverables and commercial distribution terms before purchasing."
+    }
+  ]
+}
